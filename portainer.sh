@@ -21,14 +21,6 @@ VM_SSH_KEY=""                # Clé SSH publique (optionnelle)
 read -s -p "🔒 Entrez le mot de passe pour l'utilisateur $VM_USER: " VM_PASSWORD
 echo ""  # Saut de ligne après le mot de passe
 
-# Vérification des dépendances
-for cmd in qm curl jq; do
-  if ! command -v $cmd &> /dev/null; then
-    echo "❌ Erreur: $cmd n'est pas installé. Installez-le avant de continuer."
-    exit 1
-  fi
-done
-
 # Fonction principale
 create_vm() {
   echo "⚡ Création de la VM $VM_ID ($VM_NAME)..."
